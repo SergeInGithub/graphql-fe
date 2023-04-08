@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { Dashboard } from './Dashboard';
+import { Categories } from './components/Categories';
+import { Subcategories } from './components/Subcategories';
+import { Suppliers } from './components/Suppliers';
+import { Uoms } from './components/Uoms';
+import { Warehouses } from './components/Warehouses';
+import { Products } from './components/Products';
+import { SupplierProducts } from './components/SupplierProducts';
+import { Transactions } from './components/Transactions';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/subcategories" element={<Subcategories />} />
+        <Route path="/suppliers" element={<Suppliers />} />
+        <Route path="/uoms" element={<Uoms />} />
+        <Route path="/warehouses" element={<Warehouses />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/supplierproducts" element={<SupplierProducts />} />
+        <Route path="/transactions" element={<Transactions />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
